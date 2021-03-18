@@ -1,20 +1,20 @@
+dovtenv = require('dotenv');
 const ToneAnalyzerV3 = require('ibm-watson/tone-analyzer/v3');
 const { IamAuthenticator } = require('ibm-watson/auth');
 //Creamos ruta.
-require('dotenv');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080; //MISMA DE LAS PRACTICAS
 
 ak = "9Vy6tn-wJEoH8gHvong6x-1P06sWqMG8gLJkHx373iOJ";
 url = "https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/cd2400d1-822a-40da-aa37-8ce2549076cf";
-
+dovtenv.config();
 const toneAnalyzer = new ToneAnalyzerV3({
     version: '2017-09-21',
     authenticator: new IamAuthenticator({
         apikey: ak,
     }),
-    serviceUrl: process.env.url,
+    serviceUrl: url,
 });
 
 app.post('/analyze', (req, res) => {
