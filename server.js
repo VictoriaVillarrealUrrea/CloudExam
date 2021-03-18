@@ -4,9 +4,9 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const toneAnalyzer = new ToneAnalyzerV3({
     version: '2017-09-21',
     authenticator: new IamAuthenticator({
-        apikey: '{apikey}',
+        apikey: "9Vy6tn-wJEoH8gHvong6x-1P06sWqMG8gLJkHx373iOJ",
     }),
-    serviceUrl: '{url}',
+    serviceUrl: "https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/cd2400d1-822a-40da-aa37-8ce2549076cf",
 });
 
 const text = 'Team, I know that times are tough! Product ' +
