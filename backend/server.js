@@ -11,8 +11,6 @@ const server = app.listen(port, () => {
     console.log('Server running on port: %d', port);
 });
 dovtenv.config();
-//ak = "9Vy6tn-wJEoH8gHvong6x-1P06sWqMG8gLJkHx373iOJ";
-//url = "https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/cd2400d1-822a-40da-aa37-8ce2549076cf";
 
 const toneAnalyzer = new ToneAnalyzerV3({
     version: '2017-09-21',
