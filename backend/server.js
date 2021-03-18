@@ -61,6 +61,6 @@ app.post('/analyze', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Anybody?');
+    res.send('Hi, este es el primer examen de cloud de Victoria Villarreal, saludos!');
 });
 module.exports = server;
