@@ -18,44 +18,43 @@ const toneAnalyzer = new ToneAnalyzerV3({
 });
 
 app.post('/analyze', (req, res) => {
-    /*const text = 'Team, I know that times are tough! Product ' +
+    const text = 'Team, I know that times are tough! Product ' +
         'sales have been disappointing for the past three ' +
         'quarters. We have a competitive product, but we ' +
         'need to do a better job of selling it!';
-        
-        Hay que cambiarlo por lo del post
-    
+
+    /*     Hay que cambiarlo por lo del post
+     
+     const toneParams = {
+         toneInput: { 'text': text },
+         contentType: 'application/json',
+     };
+
+     //async function callingPost(res, text) {*/
+
     const toneParams = {
+        toneInput: {
+            'text': text
+                //'autor':autor
+        },
+        contentType: 'application/json',
+    };
+    /*const toneParams = {
         toneInput: { 'text': text },
         contentType: 'application/json',
     };*/
 
-    /*async function asyncCall() {
-        console.log('calling');
-        const result = await resolveAfter2Seconds();
-        console.log(result);
-        // expected output: "resolved"
-      }*/
-
-    async function callingPost(res, text) {
-        app.listen(port, () => {
-            console.log(port);
+    toneAnalyzer.tone(toneParams)
+        .then(toneAnalysis => {
+            tono = JSON.stringify(toneAnalysis, null, 2);
+            res.send(tono);
+            console.log(tono);
         })
-        const toneParams = {
-            toneInput: text,
-            contentType: 'application/json',
-        };
-        toneAnalyzer.tone(toneParams)
-            .then(toneAnalysis => {
-                console.log(JSON.stringify(toneAnalysis, null, 2));
-            })
-            .catch(err => {
-                console.log('error:', err);
-                res.send(err);
-            })
-    };
-
-
+        .catch(err => {
+            console.log('error:', err);
+            res.send(err);
+        })
+        //};
 });
 app.listen(port, () => {
     console.log(port);
