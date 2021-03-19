@@ -7,9 +7,7 @@ const app = express();
 //error de Cors
 var cors = require('cors')
 app.use(cors())
-    //Para leer el texto en plain
-var parser = require('body-parser');
-app.use(parser.json());
+
 
 dovtenv.config();
 
@@ -32,12 +30,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/analyze', (req, res) => {
-    /*const text = 'Team, I know that times are tough! Product ' +
+    const text = 'Team, I know that times are tough! Product ' +
         'sales have been disappointing for the past three ' +
         'quarters. We have a competitive product, but we ' +
-        'need to do a better job of selling it!';*/
-
-    text = req.body.test;
+        'need to do a better job of selling it!';
 
 
     /* console.log("BACKEND")
