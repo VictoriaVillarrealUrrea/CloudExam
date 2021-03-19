@@ -23,11 +23,18 @@ const toneAnalyzer = new ToneAnalyzerV3({
 });
 
 app.post('/analyze', (req, res) => {
-    const text = 'Team, I know that times are tough! Product ' +
-        'sales have been disappointing for the past three ' +
-        'quarters. We have a competitive product, but we ' +
-        'need to do a better job of selling it!';
+    /* const text = 'Team, I know that times are tough! Product ' +
+         'sales have been disappointing for the past three ' +
+         'quarters. We have a competitive product, but we ' +
+         'need to do a better job of selling it!';
 
+
+     console.log("BACKEND")
+
+     console.log(res);*/
+
+
+    text = res.body.text;
     /*     Hay que cambiarlo por lo del post
      
      const toneParams = {
