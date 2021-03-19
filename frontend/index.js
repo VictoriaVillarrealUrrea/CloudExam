@@ -25,14 +25,11 @@ boton.addEventListener('click', function(a) { //Nombre del boton practica 3
             text: texto.value
         })
     };*/
-
-
 });
 
-async function GetResponse() {
+async function GetResponse() { //practica 4
     console.log("Aqui 1 entrando")
     let br = ["bad request"];
-    console.log("Aqui 1 entrando al get responses")
     texto = document.getElementById("textbox").value;
     console.log(texto.value)
     res = await fetch(url, {
@@ -51,7 +48,6 @@ async function GetResponse() {
         console.log(data);
         console.log("Status");
         console.log(data.status);*/
-
     if (data.status == 200) {
         result = data.result;
         div = `<div><p>${JSON.stringify(result.document_tone)}</p><p>${JSON.stringify(result.sentences_tone)}</p></div>`;
