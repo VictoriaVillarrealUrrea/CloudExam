@@ -45,14 +45,12 @@ async function GetResponse() {
         },
         body: JSON.stringify({ text: texto }) // body data type must match "Content-Type" header
     });
-    console.log("RESSSSS");
-    console.log(res);
-    console.log("Aqui 1 getresponses")
-    data = await res.json()
-    console.log("RESssssssssssssssssSSSS");
-    console.log(data);
-    console.log("Status");
-    console.log(data.status);
+    data = await res.json() // Lo hacia a lo loco y el await lo acomodó, bendito sea Dios ajajaj
+        //voy a borras todos los test
+        /*console.log("RESssssssssssssssssSSSS");
+        console.log(data);
+        console.log("Status");
+        console.log(data.status);*/
 
     if (data.status == 200) {
         result = data.result;
