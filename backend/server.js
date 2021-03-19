@@ -5,7 +5,6 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080; //MISMA DE LAS PRACTICAS
-
 const server = app.listen(port, () => {
     // eslint-disable-next-line no-console
     console.log('Server running on port: %d', port);
