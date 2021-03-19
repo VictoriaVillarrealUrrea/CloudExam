@@ -34,14 +34,13 @@ async function GetResponse() {
     let br = ["bad request"];
     console.log("Aqui 1 entrando al get responses")
     texto = document.getElementById("textbox").value;
-
     console.log(texto.value)
     res = await fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         //mode: 'no-cors', // no-cors, *cors, same-origin
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
+                //'Access-Control-Allow-Origin': '*'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: JSON.stringify({ text: texto }) // body data type must match "Content-Type" header
@@ -49,11 +48,14 @@ async function GetResponse() {
     console.log("RESSSSS");
     console.log(res);
     console.log("Aqui 1 getresponses")
-    data = res.json()
+    data = await res.json()
     console.log("RESssssssssssssssssSSSS");
     console.log(data);
+    console.log("Status");
+    console.log(data.status);
+
     if (data.status == 200) {
-        result = res.result;
+        result = data.result;
         div = `<div><p>${JSON.stringify(result.document_tone)}</p><p>${JSON.stringify(result.sentences_tone)}</p></div>`;
         console.log(div)
         document.getElementById('Success').innerHTML = div;

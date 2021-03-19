@@ -4,6 +4,9 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 //Creamos ruta.
 const express = require('express');
 const app = express();
+var cors = require('cors')
+app.use(cors())
+
 const port = process.env.PORT || 8080; //MISMA DE LAS PRACTICAS
 const server = app.listen(port, () => {
     // eslint-disable-next-line no-console
