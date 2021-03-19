@@ -5,14 +5,16 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const express = require('express');
 const app = express();
 var cors = require('cors')
+
 app.use(cors())
+
+dovtenv.config();
 
 const port = process.env.PORT || 8080; //MISMA DE LAS PRACTICAS
 const server = app.listen(port, () => {
     // eslint-disable-next-line no-console
     console.log('Server running on port: %d', port);
 });
-dovtenv.config();
 
 const toneAnalyzer = new ToneAnalyzerV3({
     version: '2017-09-21',
@@ -22,19 +24,22 @@ const toneAnalyzer = new ToneAnalyzerV3({
     serviceUrl: process.env.URL,
 });
 
+app.get('/', (req, res) => {
+    res.send('Hi, este es el primer examen de cloud de Victoria Villarreal, saludos!');
+});
+
 app.post('/analyze', (req, res) => {
-    /* const text = 'Team, I know that times are tough! Product ' +
-         'sales have been disappointing for the past three ' +
-         'quarters. We have a competitive product, but we ' +
-         'need to do a better job of selling it!';
+    const text = 'Team, I know that times are tough! Product ' +
+        'sales have been disappointing for the past three ' +
+        'quarters. We have a competitive product, but we ' +
+        'need to do a better job of selling it!';
 
 
-     console.log("BACKEND")
+    /* console.log("BACKEND")
 
      console.log(res);*/
 
 
-    text = res.body.text;
     /*     Hay que cambiarlo por lo del post
      
      const toneParams = {
@@ -69,7 +74,5 @@ app.post('/analyze', (req, res) => {
         //};
 });
 
-app.get('/', (req, res) => {
-    res.send('Hi, este es el primer examen de cloud de Victoria Villarreal, saludos!');
-});
+
 module.exports = server;
